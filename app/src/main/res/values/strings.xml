@@ -10,4 +10,5 @@
     <string name="cancel">CANCEL</string>
     <string name="account_is_empty">account is empty</string>
     <string name="password_is_empty">password is empty</string>
+    <string name="remember_password">remember the password</string>
 </resources>
