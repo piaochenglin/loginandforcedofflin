@@ -11,4 +11,11 @@
     <string name="account_is_empty">account is empty</string>
     <string name="password_is_empty">password is empty</string>
     <string name="remember_password">remember the password</string>
+    <string name="create_database">CREATE DATABASE</string>
+    <string name="add_data">ADD DATA</string>
+    <string name="update_data">UPDATE DATA</string>
+    <string name="delete_data">DELETE DATA</string>
+    <string name="query_data">QUERY DATA</string>
+    <string name="create_succeed">CREATE SUCCEED</string>
+    <string name="has_no_data">NO DATA EXISTS</string>
 </resources>
