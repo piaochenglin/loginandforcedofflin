@@ -36,11 +36,27 @@
         android:layout_height="wrap_content"
         android:text="@string/delete_data" />
 
-    <Button
-        android:id="@+id/query_data"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/query_data" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/query_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/query_data" />
+
+        <Button
+            android:id="@+id/make_call"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/make_call" />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/query_result"

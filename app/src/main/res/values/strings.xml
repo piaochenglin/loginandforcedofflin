@@ -18,4 +18,6 @@
     <string name="query_data">QUERY DATA</string>
     <string name="create_succeed">CREATE SUCCEED</string>
     <string name="has_no_data">NO DATA EXISTS</string>
+    <string name="make_call">MAKE CALL</string>
+    <string name="denied_permission">you denied the permission</string>
 </resources>

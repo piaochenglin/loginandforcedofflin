@@ -15,6 +15,7 @@ import com.klip.android.broadcastbestpractice.R;
 public class DBHelper extends SQLiteOpenHelper {
     public static final int DB_VERSION_1 = 1;
     public static final int DB_VERSION_2 = 2;
+    public static final int DB_VERSION_3 = 3;
     public static final String DB_NAME = "MY_DB.db";
     public static final String TABLE_BOOKS = "books";
     private static final String TABLE_CATEGORIES = "categories";
@@ -36,6 +37,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sql.append(" author text, ");
         sql.append(" price real, ");
         sql.append(" pages integer, ");
+        sql.append(" press text, ");
         sql.append(" name text ) ");
 
         StringBuilder sql2 = new StringBuilder(64);
