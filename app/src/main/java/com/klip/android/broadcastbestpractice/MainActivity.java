@@ -1,16 +1,24 @@
 package com.klip.android.broadcastbestpractice;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.renderscript.RenderScript;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
@@ -33,6 +41,7 @@ public class MainActivity extends BaseActivity {
     private Button delete_data;
     private Button query_data;
     private Button make_call;
+    Button send_notification;
     private TextView query_result;
 
     private DBHelper dbHelper;
@@ -48,6 +57,8 @@ public class MainActivity extends BaseActivity {
         query_result = (TextView) findViewById(R.id.query_result);
         make_call = (Button) findViewById(R.id.make_call);
         make_call.setOnClickListener(makeCallListener);
+        send_notification = (Button) findViewById(R.id.send_notification);
+        send_notification.setOnClickListener(sendNotificationListener);
         button = (Button) findViewById(R.id.forced_offline);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,4 +183,32 @@ public class MainActivity extends BaseActivity {
                 }
         }
     }
+
+    private View.OnClickListener sendNotificationListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
+            PendingIntent pi = PendingIntent.getActivity(MainActivity.this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+            NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            long time = System.currentTimeMillis() + 3000;
+
+            // bigtext 和 bigpicture只能设置一个
+            // PRIORITY_MAX ,PRIORITY_MIN显示的方式不同，max的直接就在上方弹出通知了
+            Notification notification = new NotificationCompat.Builder(MainActivity.this)
+                    .setContentTitle("title")
+                    .setContentText("big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text")
+                    .setWhen(time)
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                    .setContentIntent(pi)
+                    .setAutoCancel(true)
+                    .setVibrate(new long[]{0, 1000, 1000, 1000})
+                    .setLights(Color.GREEN, 1000, 1000)
+                    .setStyle(new NotificationCompat.BigTextStyle().bigText("big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text big text"))
+//                    .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(BitmapFactory.decodeResource(getResources(), R.mipmap.main_page_in_country_image_2)))
+                    .setPriority(NotificationCompat.PRIORITY_MAX)
+                    .build();
+            manager.notify(1, notification);
+        }
+    };
 }

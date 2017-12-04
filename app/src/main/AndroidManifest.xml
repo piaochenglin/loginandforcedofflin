@@ -3,6 +3,8 @@
     package="com.klip.android.broadcastbestpractice">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,19 +24,22 @@
             android:name=".ForceOfflineReceiver"
             android:enabled="true"
             android:exported="true">
-            <!--<intent-filter>-->
-            <!--<action android:name="ab" />-->
-            <!--</intent-filter>-->
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="ab" /> -->
+            <!-- </intent-filter> -->
 
         </receiver>
-        <!--下面两句不写在其他程序调用，这个内容提供器的时候，会报security exception-->
-        <!--android:enabled="true"-->
-        <!--android:exported="true"-->
+        <!-- 下面两句不写在其他程序调用，这个内容提供器的时候，会报security exception -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true" -->
         <provider
             android:name=".DatabaseProvider"
             android:authorities="com.klip.android.broadcastbestpractice.provider"
             android:enabled="true"
             android:exported="true" />
+
+        <activity android:name=".NotificationActivity"></activity>
     </application>
 
 </manifest>
