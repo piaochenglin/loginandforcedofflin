@@ -21,5 +21,7 @@
     <string name="make_call">MAKE CALL</string>
     <string name="notification_activity">NOTIFICATION ACTIVITY</string>
     <string name="notice">NOTICE</string>
+    <string name="take_photo">TAKE PHOTO</string>
+    <string name="choose_from_album">CHOOSE FROM ALBUM</string>
     <string name="denied_permission">you denied the permission</string>
 </resources>
