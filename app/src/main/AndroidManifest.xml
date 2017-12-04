@@ -23,10 +23,18 @@
             android:enabled="true"
             android:exported="true">
             <!--<intent-filter>-->
-                <!--<action android:name="ab" />-->
+            <!--<action android:name="ab" />-->
             <!--</intent-filter>-->
 
         </receiver>
+        <!--下面两句不写在其他程序调用，这个内容提供器的时候，会报security exception-->
+        <!--android:enabled="true"-->
+        <!--android:exported="true"-->
+        <provider
+            android:name=".DatabaseProvider"
+            android:authorities="com.klip.android.broadcastbestpractice.provider"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>
